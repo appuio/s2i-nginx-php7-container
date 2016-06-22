@@ -1,9 +1,7 @@
-PHP Docker images
+PHP 7 (FPM) Docker images
 =================
 
-This repository contains the source for building various versions of
-the PHP application as a reproducible Docker image using
-[source-to-image](https://github.com/openshift/source-to-image).
+This repository contains the source for building a PHP 7 with NGINX as a reproducible Docker image using [source-to-image](https://github.com/openshift/source-to-image).
 Users can choose between RHEL and CentOS based builder images.
 The resulting image can be run using [Docker](http://docker.io).
 
@@ -13,8 +11,7 @@ official [OpenShift Documentation](https://docs.openshift.org/latest/using_image
 Versions
 ---------------
 PHP versions currently supported are:
-* php-5.5
-* php-5.6
+* php-7.0
 
 RHEL versions currently supported are:
 * RHEL7

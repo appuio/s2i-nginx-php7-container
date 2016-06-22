@@ -9,7 +9,7 @@ else
 endif
 
 script_env = \
-	SKIP_SQUASH=$(SKIP_SQUASH)                      \
+	SKIP_SQUASH=1                      \
 	VERSIONS="$(VERSIONS)"                          \
 	OS=$(OS)                                        \
 	VERSION=$(VERSION)                              \
@@ -20,6 +20,6 @@ script_env = \
 build:
 	$(script_env) $(build)
 
-.PHONY: test
-test:
-	$(script_env) TAG_ON_SUCCESS=$(TAG_ON_SUCCESS) TEST_MODE=true $(build)
+#.PHONY: test
+#test:
+#	$(script_env) TAG_ON_SUCCESS=$(TAG_ON_SUCCESS) TEST_MODE=true $(build)
