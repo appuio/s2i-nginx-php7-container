@@ -2,7 +2,7 @@ server {
         server_name _;
         listen 8000;
 
-        root /opt/app-root/src/public;
+        root /opt/app-root/src;
         index index.php index.html index.htm;
 
         location / {
