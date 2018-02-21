@@ -11,7 +11,6 @@ official [OpenShift Documentation](https://docs.openshift.org/latest/using_image
 Versions
 ---------------
 PHP versions currently supported are:
-* php-7.0
 * php-7.1
 
 RHEL versions currently supported are:
@@ -39,26 +38,15 @@ To build a PHP image, choose either the CentOS or RHEL based image:
     ```
     $ git clone https://github.com/openshift/s2i-php.git
     $ cd s2i-php
-    $ make build VERSION=5.5
+    $ make build VERSION=7.1
     ```
 
 Alternatively, you can pull the CentOS image from Docker Hub via:
 
-    $ docker pull openshift/php-55-centos7
+    $ docker pull simonmassey/s2i-nginx-php71
 
 **Notice: By omitting the `VERSION` parameter, the build/test action will be performed
 on all the supported versions of PHP.**
-
-
-Usage
----------------------------------
-
-For information about usage of Dockerfile for PHP 5.6,
-see [usage documentation](5.6/README.md).
-
-For information about usage of Dockerfile for PHP 5.5,
-see [usage documentation](5.5/README.md).
-
 
 Test
 ---------------------
@@ -76,14 +64,14 @@ Users can choose between testing a PHP test application based on a RHEL or CentO
 
     ```
     $ cd s2i-php
-    $ make test TARGET=rhel7 VERSION=5.5
+    $ make test TARGET=rhel7 VERSION=7.1
     ```
 
 *  **CentOS based image**
 
     ```
     $ cd s2i-php
-    $ make test VERSION=5.5
+    $ make test VERSION=7.1
     ```
 
 **Notice: By omitting the `VERSION` parameter, the build/test action will be performed
@@ -109,5 +97,5 @@ Image name structure
 2. Platform version(without dots) - 55
 3. Base builder image - centos7/rhel7
 
-Examples: `openshift/php-55-centos7`, `openshift/php-55-rhel7`
+Examples: `simonmassey/s2i-nginx-php71`
 
