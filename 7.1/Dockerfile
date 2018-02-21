@@ -62,8 +62,8 @@ RUN mkdir /tmp/sessions && \
     chmod -R ug+rwx /var/log/nginx && \
     chmod -R ug+rwx /var/lib/nginx && \
     chmod -R ug+rwx /opt/app-root && \
-    chmod +x /opt/app-root/services.sh \
-    chmod -R ug+rwx /etc/php-fpm.d
+    chmod -R ug+rwx /etc/php-fpm.d && \
+    chmod +x /opt/app-root/services.sh 
 
 USER 1001
 
