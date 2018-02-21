@@ -56,13 +56,13 @@ RUN mkdir /tmp/sessions && \
     chown -R 1001:0 /var/log/nginx && \
     chown -R 1001:0 /var/lib/nginx && \
     chown -R 1001:0 /opt/app-root /tmp/sessions && \
+    chown -R 1001:0 /etc/php-fpm.d && \
     chmod -R a+rwx /tmp/sessions && \
     chmod -R a+rwx /var/log/nginx && \
     chmod -R a+rwx /var/lib/nginx && \
     chmod -R ug+rwx /var/log/nginx && \
     chmod -R ug+rwx /var/lib/nginx && \
     chmod -R ug+rwx /opt/app-root && \
-    mkdir -p /etc/php-fpm.d && \
     chmod -R ug+rwx /etc/php-fpm.d && \
     chmod +x /opt/app-root/services.sh 
 
