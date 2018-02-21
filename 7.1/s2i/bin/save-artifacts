@@ -1,4 +1,10 @@
-#!/bin/sh
-pushd /opt/app-root/src 2>&1 >/dev/null
-tar cf - vendor
+#!/bin/sh -e
+
+pushd ${HOME} >/dev/null
+
+# {$HOME}/vendor is the composer cache from the previous build
+if [ -d ./vendor ]; then
+    tar cf - ./vendor
+fi
+
 popd >/dev/null
