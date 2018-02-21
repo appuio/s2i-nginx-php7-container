@@ -3,12 +3,12 @@ FROM openshift/base-centos7
 # This image provides an Apache+PHP environment for running PHP
 # applications.
 
-MAINTAINER Diego Hernandes <diego@hernandev.com>
+MAINTAINER Simon Massey <simbo1905@60hertz.com>
 
 EXPOSE 8000
 
-ENV PHP_VERSION=7.0 \
-    PATH=$PATH:/opt/rh/rh-php70/root/usr/bin
+ENV PHP_VERSION=7.1 \
+    PATH=$PATH:/opt/rh/rh-php71/root/usr/bin
 
 LABEL io.k8s.description="Nginx and PHP 7 (FPM)" \
       io.k8s.display-name="Nginx and PHP 7 (FPM)" \
@@ -21,21 +21,18 @@ RUN curl 'https://setup.ius.io/' -o setup-ius.sh && \
 RUN rm setup-ius.sh
 RUN yum update -y && yum clean all -y
 RUN yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus \
-    php70u-fpm-nginx \
-    php70u-cli \
-    php70u-gd \
-    php70u-imap \
-    php70u-json \
-    php70u-mbstring \
-    php70u-mcrypt \
+    php71u-fpm-nginx \
+    php71u-cli \
+    php71u-gd \
+    php71u-imap \
+    php71u-json \
+    php71u-mbstring \
+    php71u-mcrypt \
     php71u-bcmath \
-    php70u-opcache \
-    php70u-pdo \
-    php70u-pdo \
-    php70u-xml && yum clean all -y
-    
-#RUN rpm -V nginx php70w-cli php70w-fpm php70w-opcache
-RUN yum clean all -y
+    php71u-opcache \
+    php71u-pdo \
+    php71u-pdo \
+    php71u-xml && yum clean all -y
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH

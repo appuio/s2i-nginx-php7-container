@@ -12,6 +12,7 @@ Versions
 ---------------
 PHP versions currently supported are:
 * php-7.0
+* php-7.1
 
 RHEL versions currently supported are:
 * RHEL7
@@ -31,7 +32,7 @@ To build a PHP image, choose either the CentOS or RHEL based image:
     ```
     $ git clone https://github.com/openshift/s2i-php.git
     $ cd s2i-php
-    $ make build TARGET=rhel7 VERSION=5.5
+    $ make build TARGET=rhel7 VERSION=7.1
     ```
 
 *  **CentOS based image**
