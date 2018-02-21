@@ -1,0 +1,4 @@
+  make build 
+  docker login
+  docker tag codecasts/php-70-centos7:latest simonmassey/php-70-centos7:latest
+  docker push simonmassey/php-70-centos7:latest
