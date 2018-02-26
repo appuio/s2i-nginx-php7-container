@@ -36,14 +36,14 @@ To build a PHP image, choose either the CentOS or RHEL based image:
 
 *  **CentOS based image**
     ```
-    $ git clone https://github.com/openshift/s2i-php.git
-    $ cd s2i-php
+    $ git clone https://github.com/UniqKeyp/s2i-nginx-php7-container.git
+    $ cd s2i-nginx-php7-container
     $ make build VERSION=7.1
     ```
 
 Alternatively, you can pull the CentOS image from Docker Hub via:
 
-    $ docker pull simonmassey/s2i-nginx-php71
+    $ docker pull uniqkey/s2i-nginx-php71
 
 **Notice: By omitting the `VERSION` parameter, the build/test action will be performed
 on all the supported versions of PHP.**
@@ -97,5 +97,5 @@ Image name structure
 2. Platform version(without dots) - 55
 3. Base builder image - centos7/rhel7
 
-Examples: `simonmassey/s2i-nginx-php71`
+Examples: `uniqkey/s2i-nginx-php71`
 
