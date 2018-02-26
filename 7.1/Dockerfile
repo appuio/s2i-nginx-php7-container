@@ -30,6 +30,7 @@ RUN yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus \
     php71u-mcrypt \
     php71u-bcmath \
     php71u-mysqlnd \
+    php71u-pgsql \
     php71u-opcache \
     php71u-pdo \
     php71u-pdo \
