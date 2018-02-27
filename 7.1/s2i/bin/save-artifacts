@@ -1,10 +1,9 @@
-#!/bin/sh -e
+#!/bin/bash
 
 pushd ${HOME} >/dev/null
 
-# {$HOME}/vendor is the composer cache from the previous build
-if [ -d ./vendor ]; then
-    tar cf - ./vendor
+if [ -f composer.phar ]; then
+    tar cf - composer.phar ./vendor
 fi
 
 popd >/dev/null
