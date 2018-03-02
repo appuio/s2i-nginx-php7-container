@@ -12,13 +12,13 @@ Versions
 ---------------
 PHP versions currently supported are:
 * php-7.1
+* php-7.2
 
 RHEL versions currently supported are:
 * RHEL7
 
 CentOS versions currently supported are:
 * CentOS7
-
 
 Installation
 ---------------
@@ -64,14 +64,14 @@ Users can choose between testing a PHP test application based on a RHEL or CentO
 
     ```
     $ cd s2i-php
-    $ make test TARGET=rhel7 VERSION=7.1
+    $ make test TARGET=rhel7 VERSION=7.2
     ```
 
 *  **CentOS based image**
 
     ```
     $ cd s2i-php
-    $ make test VERSION=7.1
+    $ make test VERSION=7.2
     ```
 
 **Notice: By omitting the `VERSION` parameter, the build/test action will be performed
@@ -97,5 +97,5 @@ Image name structure
 2. Platform version(without dots) - 55
 3. Base builder image - centos7/rhel7
 
-Examples: `uniqkey/s2i-nginx-php71`
+Examples: `uniqkey/s2i-nginx-php71`, `uniqkey/s2i-nginx-php72` 
 
