@@ -89,13 +89,9 @@ Repository organization
 
     Folder containing scripts which are responsible for the build and test actions performed by the `Makefile`.
 
-Image name structure
-------------------------
-##### Structure: openshift/1-2-3
+Public `s2i` Images
+--------------------
 
-1. Platform name (lowercase) - php
-2. Platform version(without dots) - 55
-3. Base builder image - centos7/rhel7
-
-Examples: `uniqkey/s2i-nginx-php71`, `uniqkey/s2i-nginx-php72` 
+* `uniqkey/s2i-nginx-php71`
+* `uniqkey/s2i-nginx-php72` 
 
