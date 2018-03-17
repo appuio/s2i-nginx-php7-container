@@ -22,17 +22,7 @@ CentOS versions currently supported are:
 
 Installation
 ---------------
-To build a PHP image, choose either the CentOS or RHEL based image:
-*  **RHEL based image**
-
-    To build a RHEL based PHP-5.5 image, you need to run the build on a properly
-    subscribed RHEL machine.
-
-    ```
-    $ git clone https://github.com/UniqKey/s2i-nginx-php7-container.git
-    $ cd s2i-nginx-php7-container
-    $ make build TARGET=rhel7 VERSION=7.2
-    ```
+To build a PHP image
 
 *  **CentOS based image**
     ```
