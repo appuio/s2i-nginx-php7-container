@@ -29,21 +29,21 @@ To build a PHP image, choose either the CentOS or RHEL based image:
     subscribed RHEL machine.
 
     ```
-    $ git clone https://github.com/openshift/s2i-php.git
-    $ cd s2i-php
-    $ make build TARGET=rhel7 VERSION=7.1
+    $ git clone https://github.com/UniqKey/s2i-nginx-php7-container.git
+    $ cd s2i-nginx-php7-container
+    $ make build TARGET=rhel7 VERSION=7.2
     ```
 
 *  **CentOS based image**
     ```
-    $ git clone https://github.com/UniqKeyp/s2i-nginx-php7-container.git
+    $ git clone https://github.com/UniqKey/s2i-nginx-php7-container.git
     $ cd s2i-nginx-php7-container
-    $ make build VERSION=7.1
+    $ make build VERSION=7.2
     ```
 
 Alternatively, you can pull the CentOS image from Docker Hub via:
 
-    $ docker pull uniqkey/s2i-nginx-php71
+    $ docker pull uniqkey/s2i-nginx-php72
 
 **Notice: By omitting the `VERSION` parameter, the build/test action will be performed
 on all the supported versions of PHP.**
@@ -63,20 +63,19 @@ Users can choose between testing a PHP test application based on a RHEL or CentO
     subscribed RHEL machine.
 
     ```
-    $ cd s2i-php
+    $ cd s2i-nginx-php7-container
     $ make test TARGET=rhel7 VERSION=7.2
     ```
 
 *  **CentOS based image**
 
     ```
-    $ cd s2i-php
+    $ cd s2i-nginx-php7-container
     $ make test VERSION=7.2
     ```
 
 **Notice: By omitting the `VERSION` parameter, the build/test action will be performed
-on all the supported versions of PHP. Since we currently only support version `5.5`
-you can omit this parameter.**
+on all the supported versions of PHP.**
 
 
 Repository organization
