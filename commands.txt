@@ -1,4 +1,4 @@
-  make build 
+  make build VERSION=7.2
   docker login
-  docker tag codecasts/php-70-centos7:latest simonmassey/php-70-centos7:latest
-  docker push simonmassey/php-70-centos7:latest
+  docker tag centos/php-72-centos7:latest uniqkey/s2i-nginx-php72:latest
+  docker push uniqkey/s2i-nginx-php72:latest
