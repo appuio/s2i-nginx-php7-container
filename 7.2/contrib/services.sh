@@ -8,3 +8,6 @@ printf "\n" >> /etc/php-fpm.d/www.conf
 
 php-fpm
 nginx -c /opt/app-root/etc/conf.d/nginx/nginx.conf
+
+# this echo to stdout is needed otherwise the nginx stdout doesn't show up on the docker run output
+echo date
