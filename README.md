@@ -11,7 +11,8 @@ official [OpenShift Documentation](https://docs.openshift.org/latest/using_image
 Versions
 ---------------
 PHP versions currently supported are:
-* php-7.0
+* php-7.1
+* php-7.2
 
 RHEL versions currently supported are:
 * RHEL7
@@ -19,45 +20,23 @@ RHEL versions currently supported are:
 CentOS versions currently supported are:
 * CentOS7
 
-
 Installation
 ---------------
-To build a PHP image, choose either the CentOS or RHEL based image:
-*  **RHEL based image**
-
-    To build a RHEL based PHP-5.5 image, you need to run the build on a properly
-    subscribed RHEL machine.
-
-    ```
-    $ git clone https://github.com/openshift/s2i-php.git
-    $ cd s2i-php
-    $ make build TARGET=rhel7 VERSION=5.5
-    ```
+To build a PHP image
 
 *  **CentOS based image**
     ```
-    $ git clone https://github.com/openshift/s2i-php.git
-    $ cd s2i-php
-    $ make build VERSION=5.5
+    $ git clone https://github.com/UniqKey/s2i-nginx-php7-container.git
+    $ cd s2i-nginx-php7-container
+    $ make build VERSION=7.2
     ```
 
 Alternatively, you can pull the CentOS image from Docker Hub via:
 
-    $ docker pull openshift/php-55-centos7
+    $ docker pull uniqkey/s2i-nginx-php72
 
 **Notice: By omitting the `VERSION` parameter, the build/test action will be performed
 on all the supported versions of PHP.**
-
-
-Usage
----------------------------------
-
-For information about usage of Dockerfile for PHP 5.6,
-see [usage documentation](5.6/README.md).
-
-For information about usage of Dockerfile for PHP 5.5,
-see [usage documentation](5.5/README.md).
-
 
 Test
 ---------------------
@@ -74,20 +53,19 @@ Users can choose between testing a PHP test application based on a RHEL or CentO
     subscribed RHEL machine.
 
     ```
-    $ cd s2i-php
-    $ make test TARGET=rhel7 VERSION=5.5
+    $ cd s2i-nginx-php7-container
+    $ make test TARGET=rhel7 VERSION=7.2
     ```
 
 *  **CentOS based image**
 
     ```
-    $ cd s2i-php
-    $ make test VERSION=5.5
+    $ cd s2i-nginx-php7-container
+    $ make test VERSION=7.2
     ```
 
 **Notice: By omitting the `VERSION` parameter, the build/test action will be performed
-on all the supported versions of PHP. Since we currently only support version `5.5`
-you can omit this parameter.**
+on all the supported versions of PHP.**
 
 
 Repository organization
@@ -100,13 +78,9 @@ Repository organization
 
     Folder containing scripts which are responsible for the build and test actions performed by the `Makefile`.
 
-Image name structure
-------------------------
-##### Structure: openshift/1-2-3
+Public `s2i` Images
+--------------------
 
-1. Platform name (lowercase) - php
-2. Platform version(without dots) - 55
-3. Base builder image - centos7/rhel7
-
-Examples: `openshift/php-55-centos7`, `openshift/php-55-rhel7`
+* `uniqkey/s2i-nginx-php71`
+* `uniqkey/s2i-nginx-php72` 
 

@@ -3,12 +3,12 @@ FROM openshift/base-centos7
 # This image provides an Apache+PHP environment for running PHP
 # applications.
 
-MAINTAINER Diego Hernandes <diego@hernandev.com>
+MAINTAINER Simon Massey <simbo1905@60hertz.com>
 
 EXPOSE 8000
 
-ENV PHP_VERSION=7.0 \
-    PATH=$PATH:/opt/rh/rh-php70/root/usr/bin
+ENV PHP_VERSION=7.2 \
+    PATH=$PATH:/opt/rh/rh-php72/root/usr/bin
 
 LABEL io.k8s.description="Nginx and PHP 7 (FPM)" \
       io.k8s.display-name="Nginx and PHP 7 (FPM)" \
@@ -19,20 +19,22 @@ LABEL io.k8s.description="Nginx and PHP 7 (FPM)" \
 RUN curl 'https://setup.ius.io/' -o setup-ius.sh && \
     bash setup-ius.sh
 RUN rm setup-ius.sh
+RUN yum update -y && yum clean all -y
 RUN yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus \
-    php70u-fpm-nginx \
-    php70u-cli \
-    php70u-gd \
-    php70u-imap \
-    php70u-json \
-    php70u-mbstring \
-    php70u-mcrypt \
-    php70u-opcache \
-    php70u-pdo \
-    php70u-pdo \
-    php70u-xml
-#RUN rpm -V nginx php70w-cli php70w-fpm php70w-opcache
-RUN yum clean all -y
+    php72u-fpm-nginx \
+    php72u-cli \
+    php72u-gd \
+    php72u-imap \
+    php72u-json \
+    php72u-mbstring \
+    php72u-mcrypt \
+    php72u-bcmath \
+    php72u-mysqlnd \
+    php72u-pgsql \
+    php72u-opcache \
+    php72u-pdo \
+    php72u-pdo \
+    php72u-xml && yum clean all -y
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
@@ -55,13 +57,15 @@ RUN mkdir /tmp/sessions && \
     chown -R 1001:0 /var/log/nginx && \
     chown -R 1001:0 /var/lib/nginx && \
     chown -R 1001:0 /opt/app-root /tmp/sessions && \
+    chown -R 1001:0 /etc/php-fpm.d && \
     chmod -R a+rwx /tmp/sessions && \
     chmod -R a+rwx /var/log/nginx && \
     chmod -R a+rwx /var/lib/nginx && \
     chmod -R ug+rwx /var/log/nginx && \
     chmod -R ug+rwx /var/lib/nginx && \
     chmod -R ug+rwx /opt/app-root && \
-    chmod +x /opt/app-root/services.sh
+    chmod -R ug+rwx /etc/php-fpm.d && \
+    chmod +x /opt/app-root/services.sh 
 
 USER 1001
 

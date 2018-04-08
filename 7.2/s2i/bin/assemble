@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -e
+
+echo "---> Restoring artifacts..."
+
+if [ -f /tmp/artifacts/composer.phar ]; then
+  echo "Found /tmp/artifacts/composer.phar"
+  mv /tmp/artifacts/composer.phar . 
+fi
+
+if [ -d /tmp/artifacts/vendor ]; then
+  echo "Found /tmp/artifacts/vendor"
+  mv /tmp/artifacts/vendor . 
+fi
+
+echo "---> Installing application source..."
+cp -Rf /tmp/src/. ./
+
+if [ -f composer.json ]; then
+  echo "Found 'composer.json', installing dependencies using composer.phar... "
+
+  if [ ! -f "./composer.phar" ]
+  then
+    echo "Fetching composer.phar"
+    # Install Composer
+    php -r "readfile('https://getcomposer.org/installer');" | php
+  else
+    echo "Reusing downloaded composer.phar"
+  fi
+
+  # Install App dependencies using Composer
+  ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
+
+  if [ ! -f composer.lock ]; then
+    echo -e "\nConsider adding a 'composer.lock' file into your source repository.\n"
+  fi
+fi
+
+# Fix source directory permissions
+fix-permissions ./
